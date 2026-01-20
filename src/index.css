@@ -5,9 +5,67 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 72px;
+  background-color: #ffffff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* HERO */
+.hero-section {
+  padding: 100px 0;
+}
+
+.hero-placeholder {
+  height: 280px;
+  background: #eef3ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a6cf7;
+  font-weight: 600;
+}
+
+/* SECTIONS */
+.section-padding {
+  padding: 80px 0;
+}
+
+/* CARDS */
+.feature-card,
+.template-card,
+.pricing-card {
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.feature-card:hover,
+.template-card:hover,
+.pricing-card:hover {
+  transform: translateY(-5px);
+}
+
+/* USE CASE LIST */
+.usecase-list li {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+/* FOOTER */
+.footer {
+/**position: sticky;
+  bottom: 0;*/
+  background: #0b1b3a;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
 }

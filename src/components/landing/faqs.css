@@ -1,0 +1,31 @@
+.faq-section {
+  padding: 100px 6%;
+  background: #ffffff;
+}
+
+.faq-list {
+  max-width: 900px;
+  margin: 50px auto 0;
+}
+
+.faq-item {
+  background: #f7f9ff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item summary {
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0b1c3f;
+}
+
+.faq-item p {
+  margin-top: 12px;
+  color: #5f6b8a;
+  font-size: 16px;
+  line-height: 1.6;
+}
