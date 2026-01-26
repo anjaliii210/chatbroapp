@@ -54,3 +54,11 @@
     width: 100%;
   }
 }
+
+
+.logo {
+  height: 40px;        /* navbar-appropriate */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}

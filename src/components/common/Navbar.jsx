@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import logo from "./logo.jpeg";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -21,13 +22,8 @@ function Navbar() {
       <div className="container">
         {/* BRAND */}
         <Link className="navbar-brand fw-bold d-flex align-items-center gap-2" to="/">
-  <img
-    src="src\assests\logo.png"
-    alt="Logo"
-    className="navbar-logo"
-  />
-  <span className="brand-text">ChatBRO</span>
-</Link>
+        <img src={logo} alt="Logo" className="logo"/>
+        <span className="brand-text">ChatBRO</span></Link>
 
         {/* MOBILE TOGGLER */}
         <button
@@ -76,7 +72,7 @@ function Navbar() {
             <li className="nav-item">
               <button
                 className="nav-link btn btn-link nav-animate"
-                onClick={() => scrollToSection("faqs")}
+                onClick={() => scrollToSection("faq")}
               >
                 FAQ
               </button>
