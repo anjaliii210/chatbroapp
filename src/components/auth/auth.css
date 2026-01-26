@@ -1,0 +1,170 @@
+/* ===== LEFT HERO PANEL ===== */
+.auth-page {
+  position: relative;
+  padding:80px;
+  gap: 80px; 
+  display: flex;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    #4f6df5,
+    #6f8cff
+  );
+
+  color: #ffffff;
+}
+
+/* CONTENT */
+.auth-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+}
+
+.auth-hero h1 {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+
+.auth-hero-subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  opacity: 0.95;
+}
+
+.auth-hero-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 26px;
+  opacity: 0.9;
+}
+
+/* FEATURE LIST */
+.auth-hero-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.auth-hero-features li {
+  font-size: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  opacity: 0.95;
+}
+
+.auth-hero-features li::before {
+  content: "—";
+  margin-right: 10px;
+  font-weight: 700;
+}
+
+/* FOOTER LINE */
+.auth-hero-footer {
+  margin-top: 32px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* ===== ABSTRACT SHAPES (INSPIRED BY IMAGE) ===== */
+.auth-shape {
+  position: absolute;
+  border-radius: 40px;
+  opacity: 0.25;
+  filter: blur(2px);
+}
+
+/* Large diagonal pill */
+.shape-1 {
+  width: 260px;
+  height: 70px;
+  background: #ffffff;
+  top: 65%;
+  left: -60px;
+  transform: rotate(-25deg);
+}
+
+/* Medium pill */
+.shape-2 {
+  width: 180px;
+  height: 50px;
+  background: #ffffff;
+  top: 45%;
+  left: 120px;
+  transform: rotate(-25deg);
+}
+
+/* Small accent */
+.shape-3 {
+  width: 120px;
+  height: 40px;
+  background: #ffffff;
+  top: 30%;
+  left: 260px;
+  transform: rotate(-25deg);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .auth-hero {
+    display: none;
+  }
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  border-radius: 99px
+}
+
+.auth-tabs button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  font-weight: 600;
+}
+
+.auth-tabs .active {
+  background: #ffffff;
+  color: #4f6df5;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-radius: 99px
+}
+
+.auth-btn {
+  margin-top: 12px;
+  border-radius: 99px;
+}
+
+@media (max-width: 900px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+header,
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+}
+
+

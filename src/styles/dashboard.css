@@ -1,0 +1,48 @@
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.dashboard-sidebar {
+  width: 240px;
+  background: #0b1c3f;
+  color: white;
+  padding: 24px;
+}
+
+.dashboard-sidebar a {
+  display: block;
+  color: #cdd6f4;
+  margin: 12px 0;
+  text-decoration: none;
+}
+
+.dashboard-main {
+  flex: 1;
+  background: #f5f7ff;
+}
+
+.dashboard-topbar {
+  background: white;
+  padding: 16px 24px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard-content {
+  padding: 32px;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-cards .card {
+  padding: 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
