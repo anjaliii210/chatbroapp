@@ -1,33 +1,38 @@
-// src/pages/Auth.jsx
-
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import AuthLayout from "../components/auth/AuthLayout";
-import AuthHero from "../components/auth/AuthHero";
 import LoginForm from "../components/auth/LoginForm";
-// import SignupForm from "../components/auth/SignupForm";
-import "../components/auth/auth.css";
+import SignupForm from "../components/auth/SignupForm";
 
 function Auth() {
+  const [mode, setMode] = useState("login");
   const navigate = useNavigate();
+  const { login } = useAuth();
 
-  // TEMP: simulate successful login
   const handleAuthSuccess = () => {
-    // fake auth token (replace with real token later)
-    localStorage.setItem("token", "demo-auth-token");
-
-    // redirect to dashboard
+    login();
     navigate("/dashboard");
   };
-  
 
   return (
     <AuthLayout>
-      <AuthHero />
+      {mode === "login" ? (
+        <LoginForm onSuccess={handleAuthSuccess} />
+      ) : (
+        <SignupForm onSuccess={handleAuthSuccess} />
+      )}
 
-      <div className="auth-form-wrapper">
-      <LoginForm onSuccess={handleAuthSuccess} />
-        {/* Swap with <SignupForm onSuccess={handleAuthSuccess} /> when needed */}
-      </div>
+      <button
+        className="auth-toggle"
+        onClick={() =>
+          setMode(mode === "login" ? "signup" : "login")
+        }
+      >
+        {mode === "login"
+          ? "Create an account"
+          : "Already have an account? Login"}
+      </button>
     </AuthLayout>
   );
 }

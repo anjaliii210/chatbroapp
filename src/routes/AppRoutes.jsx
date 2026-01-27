@@ -1,4 +1,3 @@
-import { Navigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Landing from "../pages/Landing";
 import Auth from "../pages/Auth";
@@ -8,21 +7,30 @@ import Dashboard from "../pages/Dashboard";
 import ProtectedRoute from "./ProtectedRoute";
 
 function AppRoutes() {
-  const isAuthenticated = () => {
-  return !!localStorage.getItem("token");
-};
-
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/auth" element={<Auth />} />
-      <Route path="/chat" element={<Chatbot />} />
+
+      {/* Protected routes */}
+      <Route
+        path="/chat"
+        element={
+          <ProtectedRoute>
+            <Chatbot />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+
       <Route path="/profile" element={<Profile />} />
-      <Route path="/dashboard" element={isAuthenticated() ? <Dashboard /> : <Navigate to="/auth" />}
-/>
-      <Route path="/chat" element={<ProtectedRoute><Chatbot /></ProtectedRoute>
-  }
-/>
     </Routes>
   );
 }

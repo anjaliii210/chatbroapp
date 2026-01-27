@@ -13,17 +13,6 @@ function AuthHero() {
           Secure AI-powered document conversations.
         </p>
 
-        <p className="auth-hero-desc">
-          Upload documents, ask natural language questions, and get
-          instant, accurate answers — all in one place.
-        </p>
-
-        <ul className="auth-hero-features">
-          <li>Summarize PDFs, DOCX, and reports</li>
-          <li>Ask questions and get cited answers</li>
-          <li>Private, secure, and fast by design</li>
-        </ul>
-
         <div className="auth-hero-footer">
           No credit card required · Privacy-first AI
         </div>

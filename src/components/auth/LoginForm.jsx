@@ -1,15 +1,18 @@
 import { useState } from "react";
 
-function LoginForm({ onSuccess = () => {} } ) {
+const STATIC_PASSWORD = "chatbro123";
+
+function LoginForm({ onSuccess = () => {} }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // TEMP: fake auth check
-    if (email && password) {
-      onSuccess(); // let parent decide navigation
+    if (email && password && password === STATIC_PASSWORD) {
+      onSuccess();
+    } else {
+      alert("Invalid password");
     }
   };
 
@@ -41,4 +44,4 @@ function LoginForm({ onSuccess = () => {} } ) {
   );
 }
 
-export default LoginForm; 
+export default LoginForm;

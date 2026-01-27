@@ -8,9 +8,9 @@ function App() {
   const isDashboard = location.pathname.startsWith("/dashboard");
   return (
       <AuthProvider>
-        <Navbar />
-        <AppRoutes />
-      </AuthProvider>
+      {!isDashboard && <Navbar />}
+      <AppRoutes />
+    </AuthProvider>
   );
 }
 

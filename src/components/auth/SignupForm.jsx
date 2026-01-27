@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-function SignupForm() {
-  const navigate = useNavigate();
+const STATIC_PASSWORD = "chatbro123";
 
+function SignupForm({ onSuccess = () => {} }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,9 +10,10 @@ function SignupForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // fake signup success
-    if (name && email && password) {
-      navigate("/chat");
+    if (name && email && password === STATIC_PASSWORD) {
+      onSuccess();
+    } else {
+      alert("Wrong password");
     }
   };
 
