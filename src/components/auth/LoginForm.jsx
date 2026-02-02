@@ -1,17 +1,29 @@
 import { useState } from "react";
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 
 function LoginForm({ onSuccess = () => {} } ) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ const handleSubmit = (e) => {
+  e.preventDefault();
 
-    // TEMP: fake auth check
-    if (email && password) {
-      onSuccess(); // let parent decide navigation
-    }
-  };
+  if (!emailRegex.test(email)) {
+    setError("Please enter a valid email address");
+    return;
+  }
+
+  if (password.length < 8) {
+    setError("Password must be at least 8 characters");
+    return;
+  }
+
+  setError(""); // clear error on success
+  onSuccess();
+};
+
 
   return (
     <form className="auth-form" onSubmit={handleSubmit}>
@@ -33,6 +45,8 @@ function LoginForm({ onSuccess = () => {} } ) {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
+
+      {error && <p className="auth-error">{error}</p>} 
 
       <button type="submit" className="auth-btn">
         Login

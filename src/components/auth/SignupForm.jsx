@@ -1,21 +1,49 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const nameRegex = /^[A-Za-z\s]{2,50}$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const passwordRegex =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+
 function SignupForm() {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    // fake signup success
-    if (name && email && password) {
-      navigate("/chat");
-    }
-  };
+  if (!nameRegex.test(name)) {
+    setError("Name must contain only letters and be at least 2 characters");
+    return;
+  }
+
+  if (!emailRegex.test(email)) {
+    setError("Please enter a valid email address");
+    return;
+  }
+
+  if (!passwordRegex.test(password)) {
+    setError(
+      "Password must be at least 8 characters and include uppercase, lowercase, number, and symbol"
+    );
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    setError("Passwords do not match");
+    return;
+  }
+
+  setError("");
+  navigate("/chat");
+};
 
   return (
     <form className="auth-form" onSubmit={handleSubmit}>
@@ -45,6 +73,8 @@ function SignupForm() {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
+      {error && <p className="auth-error">{error}</p>}
+
 
       <button type="submit" className="auth-btn">
         Sign Up
