@@ -1,19 +1,27 @@
 import { useState } from "react";
 
-const STATIC_PASSWORD = "chatbro123";
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function LoginForm({ onSuccess = () => {} }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (email && password && password === STATIC_PASSWORD) {
-      onSuccess();
-    } else {
-      alert("Invalid password");
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address");
+      return;
     }
+
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters");
+      return;
+    }
+
+    setError("");
+    onSuccess();
   };
 
   return (
@@ -26,7 +34,6 @@ function LoginForm({ onSuccess = () => {} }) {
         placeholder="Email address"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        required
       />
 
       <input
@@ -34,8 +41,9 @@ function LoginForm({ onSuccess = () => {} }) {
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        required
       />
+
+      {error && <p className="auth-error">{error}</p>}
 
       <button type="submit" className="auth-btn">
         Login

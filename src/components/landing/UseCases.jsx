@@ -1,6 +1,13 @@
 import { useState } from "react";
 import "./useCases.css";
 
+import ecommerce from "../../assets/images/ecommerce.jpg";
+import realEstate from "../../assets/images/realstate.jpg";
+import conference from "../../assets/images/conference.jpg";
+import education from "../../assets/images/education.jpg";
+
+
+
 const useCasesData = [
   {
     id: "ecommerce",
@@ -9,7 +16,7 @@ const useCasesData = [
       "Answer frequently asked questions about orders, returns, and shipping.",
       "Improve customer satisfaction by providing quick, automated answers 24/7."
     ],
-    image: "/images/usecases/ecommerce.png"
+    image: ecommerce
   },
   {
     id: "realestate",
@@ -18,7 +25,7 @@ const useCasesData = [
       "Capture and qualify leads by asking property-related questions.",
       "Automatically route hot leads to sales teams."
     ],
-    image: "/images/usecases/realestate.png"
+    image: realEstate
   },
   {
     id: "events",
@@ -27,7 +34,7 @@ const useCasesData = [
       "Handle registrations, schedules, and FAQs instantly.",
       "Reduce manual coordination and user drop-offs."
     ],
-    image: "/images/usecases/events.png"
+    image: conference
   },
   {
     id: "education",
@@ -36,9 +43,10 @@ const useCasesData = [
       "Collect structured feedback from students and staff.",
       "Generate actionable insights using AI summaries."
     ],
-    image: "/images/usecases/education.png"
+    image: education
   }
 ];
+
 
 export default function UseCases() {
   const [activeCase, setActiveCase] = useState(useCasesData[0]);
