@@ -7,12 +7,12 @@ const Logo=() => {
         display: "flex",
         marginRight: "auto",
         alignItems: "center",
-        gap: "8px",
+        gap: "15%",
         }}>
             <Link to={"/"} ><img src="img4.jpg" alt="Logo" width={"30px"} height={"30px"} className='image-inverted' />
-            <Typography sx={{ display:{md:"block",sm:"none",xs:"none"},
+            <Typography sx={{ display:{ xs:"block", md:"block" },
             mr:"auto",
-            fontWeight: "800",
+            fontWeight: "600",
             textShadow:"2px 2px 20px #000" }}>
 
             <span style={{ fontSize:"20px"}}>Chat</span>Bro
