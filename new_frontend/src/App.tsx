@@ -1,6 +1,7 @@
 
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
+import { useAuth } from './context/AuthContext'
 import Header from './components/Header'
 import Home from './pages/Home'
 import Chat from './pages/Chat'
@@ -9,6 +10,7 @@ import Signup from './pages/Signup'
 import NotFound from './pages/NotFound'
 
 function App() {
+  console.log(useAuth().isLoggedIn)
   return <main>
     <Header/>
     <Routes>
@@ -20,4 +22,4 @@ function App() {
   </Routes>  </main>
 } 
 
-export default App
+export default App;
